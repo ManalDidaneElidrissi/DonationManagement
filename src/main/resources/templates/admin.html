@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="header">
+<head>
+    <meta charset="UTF-8">
+    <title>My Blood</title>
+    <link rel="icon" href="imgs/Logo Rose Transparent.png" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
+</head>
+<body>
+<div layout:fragment="content1">
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header"><h3>Pending users</h3></div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Username</th>
+                    <th>Blood type</th>
+                    <th>Gender</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>City</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="u:${UsersList}">
+                    <td th:text="${u.id}"></td>
+                    <td th:text="${u.Username}"></td>
+                    <td th:text="${u.groupeSanguin}"></td>
+                    <td th:text="${u.sexe}"></td>
+                    <td th:text="${u.numTel}"></td>
+                    <td th:text="${u.email}"></td>
+                    <td th:text="${u.ville}"></td>
+                    <td>
+                        <a onclick="javascript:return confirm('Are you sure ?')" class="btn btn-danger" th:href="@{deleteUser(id=${u.id})}">
+                            <button type="button" class="btn btn-danger ">Delete</button>
+                        </a>
+                    </td>
+                    <td>
+                        <a class="btn btn-success ml-2" th:href="@{addUser(id=${u.id})}">
+                            <button type="button"  class="btn btn-success">Accept</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header"><h3>Pending requests</h3></div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Request</th>
+                    <th>Seeker name</th>
+                    <th>Blood type</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="d:${ReqsList}">
+                    <td th:text="${d.id}"></td>
+                    <td th:text="${d.seekerName}"></td>
+                    <td th:text="${d.groupeSanguin}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{deleteReq(id=${d.id})}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                        <a class="btn btn-success" th:href="@{addReq(id=${d.id})}">
+                            <button type="button"  class="btn btn-success">Accept</button>
+
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-header"><h3>Users</h3></div>
+        <div class="card-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="us:${UsersListe}">
+                    <td th:text="${us.id}"></td>
+                    <td th:text="${us.Username}"></td>
+                    <td th:text="${us.email}"></td>
+                    <td>
+                        <a class="btn btn-danger" th:href="@{deleteUser(id=${us.id})}">
+                            <button type="button" class="btn btn-danger ">Delete</button>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+    <!-- Footer Start -->
+    <!-- Navbar 1 Start -->
+    <!-- Navbar 1 Start -->
+    <section id="Nav1">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                </div>
+                <div class="mx-auto order-0 navbar-brand mx-auto">
+                    <a href="https://www.instagram.com/ipda3.tech/"><i
+                            class="fab fa-instagram github">&nbsp;&nbsp;</i></a>
+                    <a href="https://www.facebook.com/ipda3tech/"><i
+                            class="fab fa-facebook-f facebook">&nbsp;&nbsp;</i></a>
+                    <a href="https://twitter.com/ipda3_tech"><i class="fab fa-twitter twitter">&nbsp;&nbsp;</i></a>
+                    <a href="https://api.whatsapp.com/send?phone=+201097571186"><i
+                            class="fab fa-whatsapp whats">&nbsp;&nbsp;</i></a>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- Navbar 1 End -->
+    <section id="footer">
+        <div class="container">
+            <div class="foot-info">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="imgs/Logo Rose Transparent.png" alt="" width="25%" height="auto">
+
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <p width="25%">
+                        Introducing our Blood Donation Web App: Connect, Donate, Save Lives! Join us in our mission to bridge the gap between blood donors and those in need. Experience a seamless and secure platform that facilitates quick and efficient blood donation requests and matches. Together, let's make a life-saving impact!
+                    </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script type="text/javascript" src="js/swiper.min.js"></script>
+    <script type="text/javascript" src="js/wow.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+</div>
+</body>
+</html>

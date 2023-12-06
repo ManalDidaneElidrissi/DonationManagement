@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="header">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+    <!-- website font  -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/animate.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+    <title>My Blood</title>
+    <link rel="icon" href="imgs/Logo Rose Transparent.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div layout:fragment="content1">
+
+    <!-- article Start -->
+    <section id="article">
+        <div class="container ">
+            <img class="head-img" src="imgs/p5.jpg" alt="">
+            <div class="details-container">
+                <div class="title">Advantages and Disadvantages of Blood Donation</div>
+                    <p> <strong> The Advantages of Blood Donation</strong></p>
+                    <p>
+                        One of the most significant benefits of blood donation is the ability to save lives. Donated blood is utilised in a variety of medical operations, such as surgeries, emergency treatments, and transfusions for individuals suffering from blood disorders and severe injuries. You have the ability to contribute to someone's recovery and potentially be a lifesaver for those in need by donating blood.
+
+                        <br> Health Advantages for Donors: There are various health advantages to donating blood. By eliminating excess iron storage, the process aids in the regulation of iron levels in the body. Individuals with certain genetic diseases, such as hereditary hemochromatosis, which causes iron overload, may benefit from this reduction. Donors who donate blood also receive a mini-health check-up, which includes blood pressure, haemoglobin levels, and cholesterol screening.
+                        <br>Blood Cell Production Stimulation: After donating blood, the body begins rebuilding the missing blood cells. This process promotes the formation of new blood cells, including red and white blood cells. Platelets and blood cells enhance general well-being and help maintain a healthy blood cell count.
+                        <br>Reduced Risk of Cardiovascular Diseases: According to research, regular blood donation may lessen the incidence of cardiovascular disorders such as heart attacks and strokes. Excess iron is removed during blood donation, which reduces oxidative stress and the risk of heart disease.
+                        <br>Emotional and Psychological benefits: Donating blood can create a sense of accomplishment and purpose. Helping others can increase self-esteem, promote mental health, and foster a sense of belonging and connectedness within the community. Knowing that your contribution has made a difference in someone's life can be emotionally fulfilling.
+                    </p>
+                    <p><strong> The Disadvantages of Blood Donation</strong></p>
+                <p>
+                    <br>Temporary Weariness and Dizziness: Some donors may experience temporary weariness, weakness, or dizziness after donating blood. These symptoms usually pass quickly, but it is critical to relax, hydrate, and have a nutritional meal following donation to aid in a swift recovery.
+                    <br>Iron insufficiency: While regular blood donation can help people who are iron deficient, it can also contribute to iron insufficiency in frequent donors. Iron is required for the process of replacing blood cells, and excessive blood donation without enough iron replacement can deplete the body's iron stores over time. To maintain healthy iron levels, regular donors should visit their healthcare physician about iron supplements or dietary changes.
+                    <br>Potential Infection Risks: Despite extensive safety measures, there is still a minor risk of infection linked with the blood donation process. Nonetheless, with the help of thorough screening methods and sterile procedures, the odds of catching an illness from giving blood are quite low.
+                    <br>Time and Effort: Donating blood takes time and effort, including travelling to the donation centre, going through screening procedures, and setting aside time for recovery following donation. This commitment may be regarded as negative by those with hectic schedules or who are unable to devote adequate time to contribution.
+
+                    Many people are reluctant to make their first blood donation, but once they do, they find the donation process to be easy and gratifying. Learn more about common concerns »
+                </p>
+                <p>
+                    <a target="_blank" href="https://www.sanarhospitals.com/blog/know-the-advantages-and-disadvantages-of-blood-donation">Read more ...</a>
+                </p>
+
+            </div>
+        </div>
+    </section>
+    <!-- Article End -->
+    <section id="articles">
+        <div class="container">
+            <h2 style="display: inline-block;">Articles</h2>
+            <div class="swiper-container">
+                <div class="button-area" style="display: inline-block; margin-left: 850px;">
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    </button>
+                </div>
+
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="card-img-top" style="position: relative;">
+                                <img src="imgs/p3.jpg" alt="Card image">
+                                <button class="like"><i class="fas fa-heart icon-large"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Blood Types</h4>
+                                <p class="card-text">There are eight blood types included in the ABO and Rh blood group systems: A positive (A+), A negative (A-), B positive (B+), B negative (B-), AB positive (AB+), AB negative (AB-), O positive (O+), O negative (O-).
+
+                                    The most common blood type in the United States is O positive (O+).
+
+                                    The least common blood type in the U.S. is AB negative (AB-).</p>
+                                <div class="btn-cont">
+                                    <button type="submit" class="card-btn" onclick= "window.location.href = 'BloodTypes';">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="card-img-top" style="position: relative;">
+                                <img src="imgs/p4.jpg" alt="Card image">
+                                <button class="like"><i class="fas fa-heart icon-large"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Donations Benefits</h4>
+                                <p class="card-text">Donating blood has benefits for your emotional and physical health. According to a report by the Mental Health Foundation, helping others can:
+
+                                    reduce stress
+                                    improve your emotional well-being
+                                    benefit your physical health
+                                    help get rid of negative feelings
+                                    provide a sense of belonging and reduce isolation
+                                    Research has found further evidence of the health benefits that come specifically from donating blood.
+                                </p>
+                                <div class="btn-cont">
+                                    <button class="card-btn" onclick= "window.location.href = 'DonationsBenefits';">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card ">
+                            <div class="card-img-top" style="position: relative;">
+                                <img src="imgs/p5.jpg" alt="Card image">
+                                <button class="like"><i class="fas fa-heart icon-large"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Advantages and Disadvantages of Blood Donation</h4>
+                                <p class="card-text">Blood donation is a selfless act wherein a person willingly donates a portion of their blood to aid others in need. This selfless act has the potential to save innumerable lives while also having a substantial impact on the healthcare system. However, before opting to give blood, it is critical to understand both the benefits and drawbacks of doing so. This blog will highlight the advantages and disadvantages of donating blood, giving you a thorough grasp of this crucial humanitarian gesture.
+                                </p>
+                                <div class="btn-cont">
+                                    <button class="card-btn" onclick= "window.location.href = 'Advantages_Disadvantages ';">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="card">
+                            <div class="card-img-top" style="position: relative;">
+                                <img src="imgs/p5.jpg" alt="Card image">
+                                <button class="like"><i class="fas fa-heart icon-large"></i></button>
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">How To Donate?</h4>
+                                <p class="card-text">If you’re donating whole blood, we’ll cleanse an area on your arm and insert a brand new sterile needle for the blood draw. (This feels like a quick pinch and is over in seconds.)
+                                    Other types of donations, such as platelets, are made using an apheresis machine which will be connected to both arms.
+                                    A whole blood donation takes about 8-10 minutes, during which you’ll be seated comfortably or lying down.
+                                    When approximately a pint of whole blood has been collected, the donation is complete and a staff person will place a bandage on your arm.
+                                    For platelets, the apheresis machine will collect a small amount of blood, remove the platelets, and return the rest of the blood through your other arm; this cycle will be repeated several times over about 2 hours.
+                                </p>
+                                <div class="btn-cont">
+                                    <button class="card-btn" onclick= "window.location.href = 'howtodonate';">Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Articles End -->
+
+<!-- Footer Start -->
+<!-- Navbar 1 Start -->
+    <!-- Navbar 1 Start -->
+    <section id="Nav1">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+                </div>
+                <div class="mx-auto order-0 navbar-brand mx-auto">
+                    <a href="https://www.instagram.com/ipda3.tech/"><i
+                            class="fab fa-instagram github">&nbsp;&nbsp;</i></a>
+                    <a href="https://www.facebook.com/ipda3tech/"><i
+                            class="fab fa-facebook-f facebook">&nbsp;&nbsp;</i></a>
+                    <a href="https://twitter.com/ipda3_tech"><i class="fab fa-twitter twitter">&nbsp;&nbsp;</i></a>
+                    <a href="https://api.whatsapp.com/send?phone=+201097571186"><i
+                            class="fab fa-whatsapp whats">&nbsp;&nbsp;</i></a>
+                </div>
+                <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+                </div>
+            </div>
+        </nav>
+    </section>
+    <!-- Navbar 1 End -->
+    <section id="footer">
+        <div class="container">
+                    <div class="foot-info">
+                        <div class="row">
+                            <div class="col-md-4">
+                        <img src="imgs/Logo Rose Transparent.png" alt="" width="25%" height="auto">
+
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                        <p width="25%">
+                            Introducing our Blood Donation Web App: Connect, Donate, Save Lives! Join us in our mission to bridge the gap between blood donors and those in need. Experience a seamless and secure platform that facilitates quick and efficient blood donation requests and matches. Together, let's make a life-saving impact!
+                        </p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer End -->
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script type="text/javascript" src="js/swiper.min.js"></script>
+<script type="text/javascript" src="js/wow.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+
+
+</div>
+</body>
+
+</html>

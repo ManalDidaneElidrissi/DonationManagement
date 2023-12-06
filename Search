@@ -1,0 +1,14 @@
+-------------HTML
+<form  method="get" class="search-form" th:action="@{} ">
+            <div class="input-group">
+              <input type="text" name="search" id="search" class="form-control" placeholder="Rechercher...">
+              <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+</form>
+
+-----------Controlleur
+
+    @GetMapping(path = "/index")
+    public String Users(Model model, @RequestParam(name = "search", defaultValue = "") String search){
+        return "index";
+    }

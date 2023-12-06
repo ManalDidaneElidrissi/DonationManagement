@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+                xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.bundle.js"></script>
+    <script src="/webjars/bootstrap/4.0.0/js/bootstrap.js"></script>
+
+</head>
+<body>
+<!-- Navbar 2 Start -->
+<section id="Nav2">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <img src="imgs/Logo Rose Transparent.png" width="7%" height="auto" />
+        <div class="collapse navbar-collapse mx-2" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto" classe="ml-1">
+                <li class="nav-item">
+                    <a class="nav-link selected" th:href="@{/home}">Home</a>
+                </li>
+                <li class="nav-item" th:if="${#authorization.expression('hasRole(''ADMIN'')')}">
+                    <a class="nav-link" th:href="@{/adminSpace}">Admin Space</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/articles}">Articles</a>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop1" data-toggle="dropdown" >
+                        Donations
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{/requests}">Requests</a>
+                        <a class="dropdown-item" th:href="@{createReq}">Create request</a>
+                    </div>
+                </li>
+                <nav class="navbar navbar-expand-sm bg-light navbar-light">
+                    <form class="form-inline" method="get" th:action="@{requests}">
+                        <select class="form-select form-control" name="Type" th:value="${Type}" >
+                            <option value="">Select Blood Type</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                        <button class="btn btn-success ml-3" type="submit">Search</button>
+                    </form>
+                </nav>
+            </ul>
+            <ul class="navbar-nav float-end" classe="ml-1">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown" >
+                        <span th:text="${#authentication.name}"></span>
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" th:href="@{profile(id=${user.id})}">Profile Settings</a>
+                        <a class="dropdown-item" th:href="@{/logout}">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</section>
+<!-- Navbar 2 End -->
+
+<section layout:fragment="content1">
+
+</section>
+
+</body>
+</html>

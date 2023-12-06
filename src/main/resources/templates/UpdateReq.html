@@ -1,0 +1,108 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+  <!-- website font  -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <title>My Blood</title>
+  <link rel="icon" href="imgs/Logo Rose Transparent.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div layout:fragment="content1">
+
+<!-- Sign Up Start -->
+<section id="sign-up">
+  <div class="container mt-5" >
+    <form method="post" th:action="@{UpdateReq(id=${req.id})}">
+      <input class="form-control" type="hidden" name="id" th:value="${req.id}" required>
+      <input class="form-control" type="text" name="seekerName" placeholder="Seekername" th:value="${req.seekerName}" required>
+      <select class="form-select" name="groupeSanguin" id="groupeSanguin" required>
+        <option value="">Choose your Blood Type</option>
+        <option th:each="bloodType : ${bloodTypes}" th:value="${bloodType}" th:text="${bloodType}" th:selected="${bloodType == user.groupeSanguin}"></option>
+      </select>
+      <input class="form-control" type="text" name="numTel" placeholder="Phone Number" th:value="${req.numTel}" required>
+      <input class="form-control" type="text" name="ville" placeholder="City" th:value="${req.ville}" required>
+      <input class="form-control" type="text" name="nomHopital" placeholder="Hospital" th:value="${req.nomHopital}" required>
+      <input class="form-control" type="text" name="nbPoche" placeholder="Blood Bags" th:value="${req.nbPoche}" required>
+      <div class="reg-group">
+        <input class="check" type="checkbox"  name="urgence" th:checked="${req.urgence}" style="height: auto; display:inline; margin: 0 auto;" >Emergency<br>
+        <button class="submit" type="submit" style="background-color: rgb(51, 58, 65);">Edit</button>
+      </div>
+    </form>
+  </div>
+</section>
+<!-- Sign Up End -->
+
+  <!-- Footer Start -->
+  <!-- Navbar 1 Start -->
+  <!-- Navbar 1 Start -->
+  <section id="Nav1">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        </div>
+        <div class="mx-auto order-0 navbar-brand mx-auto">
+          <a href="https://www.instagram.com/ipda3.tech/"><i
+                  class="fab fa-instagram github">&nbsp;&nbsp;</i></a>
+          <a href="https://www.facebook.com/ipda3tech/"><i
+                  class="fab fa-facebook-f facebook">&nbsp;&nbsp;</i></a>
+          <a href="https://twitter.com/ipda3_tech"><i class="fab fa-twitter twitter">&nbsp;&nbsp;</i></a>
+          <a href="https://api.whatsapp.com/send?phone=+201097571186"><i
+                  class="fab fa-whatsapp whats">&nbsp;&nbsp;</i></a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar 1 End -->
+  <section id="footer">
+    <div class="container">
+      <div class="foot-info">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="imgs/Logo Rose Transparent.png" alt="" width="25%" height="auto">
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <p width="25%">
+            Introducing our Blood Donation Web App: Connect, Donate, Save Lives! Join us in our mission to bridge the gap between blood donors and those in need. Experience a seamless and secure platform that facilitates quick and efficient blood donation requests and matches. Together, let's make a life-saving impact!
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer End -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="js/swiper.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+
+</div>
+</body>
+
+</html>

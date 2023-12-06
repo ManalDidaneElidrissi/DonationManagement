@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+  <!-- website font  -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <title>My Blood</title>
+  <link rel="icon" href="imgs/Logo Rose Transparent.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div layout:fragment="content1">
+
+  <!-- Requests Start -->
+  <section id="requests">
+    <div class="title">
+      <h2>Donations</h2>
+      <hr class="line">
+    </div>
+    <!--<div class="container">
+      <div class="row" method="get" th:action="@{index}">
+          <div class="col-lg-5">
+            <select class="form-select" name="Type" id="groupeSanguin" >
+              <option value="">Select Blood Type</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B">B+</option>
+              <option value="B-">B-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+            </select>
+          </div>
+          <div class="search">
+            <button type="submit"><i class="col-lg-2 fas fa-search"></i> Search</button>
+          </div>
+      </div>-->
+
+      <div class="row" th:each="req : ${ReqList}">
+        <div class="col-lg-12">
+          <div class="row">
+            <div class="col-lg-3">
+              <div class="type">
+                <h2><span th:text="${req.groupeSanguin}"></span></h2>
+              </div>
+            </div>
+            <div class="data col-lg-5">
+              <h4>Name: <span th:text="${req.seekerName}"></span> </h4>
+              <h4>Hospital: <span th:text="${req.nomHopital}"></span></h4>
+              <h4>Number of Required Blood Bags: <span th:text="${req.nbPoche}"></span></h4>
+              <h4>City: <span th:text="${req.ville}"></span></h4>
+              <h4>Phone: <span th:text="${req.numTel}"></span></h4>
+              <!--<h4>Emergency: <span th:text="${req.urgence ? 'very urgent' : ''}"></span></h4>-->
+              <h4 class="emergency" th:classappend="${req.urgence ? 'urgent' : ''}">Emergency: <span th:text="${req.urgence ? 'very urgent' : ''}"></span></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="page-num " th:each="p,status : ${pages}">
+        <nav aria-label="Page navigation example ">
+          <ul class="pagination justify-content-center  ">
+            <li class="page-item ">
+              <a class="page-link " th:text="${status.index+1}" th:href="@{requests(page=${status.index},Type=${Type})}"></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3326.151900953062!2d-7.6195218!3d33.5825111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda7d2a257c09e69%3A0x1909f903444676f7!2sCentre%20r%C3%A9gional%20de%20transfusion%20sanguine%20de%20Casablanca!5e0!3m2!1sen!2seg!4v1567936654125!5m2!1sen!2seg"
+            width="100%" height="550" frameborder="0" style="border:0;" allowfullscreen="">
+    </iframe>
+
+
+  </section>
+  <!-- Requests End -->
+  <!-- Footer Start -->
+  <!-- Navbar 1 Start -->
+  <!-- Navbar 1 Start -->
+  <section id="Nav1">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        </div>
+        <div class="mx-auto order-0 navbar-brand mx-auto">
+          <a href="https://www.instagram.com/ipda3.tech/"><i
+                  class="fab fa-instagram github">&nbsp;&nbsp;</i></a>
+          <a href="https://www.facebook.com/ipda3tech/"><i
+                  class="fab fa-facebook-f facebook">&nbsp;&nbsp;</i></a>
+          <a href="https://twitter.com/ipda3_tech"><i class="fab fa-twitter twitter">&nbsp;&nbsp;</i></a>
+          <a href="https://api.whatsapp.com/send?phone=+201097571186"><i
+                  class="fab fa-whatsapp whats">&nbsp;&nbsp;</i></a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar 1 End -->
+  <section id="footer">
+    <div class="container">
+      <div class="foot-info">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="imgs/Logo Rose Transparent.png" alt="" width="25%" height="auto">
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <p width="25%">
+            Introducing our Blood Donation Web App: Connect, Donate, Save Lives! Join us in our mission to bridge the gap between blood donors and those in need. Experience a seamless and secure platform that facilitates quick and efficient blood donation requests and matches. Together, let's make a life-saving impact!
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer End -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="js/swiper.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+
+</div>
+</body>
+
+</html>

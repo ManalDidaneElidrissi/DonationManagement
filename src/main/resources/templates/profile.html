@@ -1,0 +1,165 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="header">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+  <!-- website font  -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/animate.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <title>My Blood</title>
+  <link rel="icon" href="imgs/Logo Rose Transparent.png" type="image/x-icon">
+
+</head>
+
+<body>
+<div layout:fragment="content1">
+
+<!-- Sign Up Start -->
+<section id="sign-up">
+  <div class="container mt-5" >
+    <form method="post"  th:action="@{update}" >
+      <div class="card-header"><h1 class="text-center">My Profile</h1></div>
+      <input class="form-control" type="hidden" name="id" th:value="${user.id}" required>
+      <input class="form-control" type="text" name="Username" placeholder="Username" th:value="${user.Username}" required>
+      <input class="form-control" type="email" name="email" placeholder="Email" th:value="${user.email}" required>
+      <!-- ... -->
+      <select class="form-select" name="groupeSanguin" id="groupeSanguin" required>
+        <option value="">Choose your Blood Type</option>
+        <option th:each="bloodType : ${bloodTypes}" th:value="${bloodType}" th:text="${bloodType}" th:selected="${bloodType == user.groupeSanguin}"></option>
+      </select>
+      <select class="form-select" name="sexe" id="sexe" required>
+        <option value="" th:text="${user.sexe != '' ? user.sexe : 'Gender'}"></option>
+        <option th:each="gender : ${genders}" th:value="${gender}" th:text="${gender}" th:selected="${gender == user.sexe}"></option>
+      </select>
+
+      <!-- ... -->
+
+      <input class="form-control" type="text" name="numTel" placeholder="Phone Number" th:value="${user.numTel}" required>
+      <input class="form-control" type="text" name="ville" placeholder="City" th:value="${user.ville}" required>
+      <input class="form-control" type="password" name="password" placeholder="Password" th:value="${user.password}" required>
+      <input  type="date" name="don" placeholder="Last donation" th:value="${user.don}" required>
+
+      <!--<input type="file" class="form-control " id="cin" name="cin"  >-->
+      <div class="reg-group">
+        <button class="submit" type="submit" style="background-color: rgb(51, 58, 65);">Edit</button>
+      </div>
+    </form>
+    <div class="reg-group">
+      <a onclick="javascript:return confirm('Are you sure ?')" class="btn btn-danger mt-3 float-end" th:href="@{deleted(id=${user.id})}">
+        <button type="button" class="btn btn-danger ">Delete my account </button>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- Sign Up End -->
+
+  <div class="container mt-3">
+    <div class="card">
+      <div class="card-header"><h1 class="text-center">My Requests</h1></div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>Seekername</th>
+            <th>Blood Type</th>
+            <th>Phone number</th>
+            <th>City</th>
+            <th>Hospital</th>
+            <th>Blood Bags</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="req : ${myRequests}">
+            <td th:text="${req.seekerName}"></td>
+            <td th:text="${req.groupeSanguin}"></td>
+            <td th:text="${req.numTel}"></td>
+            <td th:text="${req.ville}"></td>
+            <td th:text="${req.nomHopital}"></td>
+            <td th:text="${req.nbPoche}"></td>
+            <td>
+              <a onclick="javascript:return confirm('Are you sure ?')" class="btn btn-danger" th:href="@{ReqDeleted(id=${req.id})}">
+                <button type="button" class="btn btn-danger ">Delete</button>
+              </a>
+              <a class="btn btn-success ml-2"  th:href="@{myReq(id=${req.id})}">
+                <button type="button"  class="btn btn-success">Edit</button>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer Start -->
+  <!-- Navbar 1 Start -->
+  <!-- Navbar 1 Start -->
+  <section id="Nav1">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <div class="container">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+        </div>
+        <div class="mx-auto order-0 navbar-brand mx-auto">
+          <a href="https://www.instagram.com/ipda3.tech/"><i
+                  class="fab fa-instagram github">&nbsp;&nbsp;</i></a>
+          <a href="https://www.facebook.com/ipda3tech/"><i
+                  class="fab fa-facebook-f facebook">&nbsp;&nbsp;</i></a>
+          <a href="https://twitter.com/ipda3_tech"><i class="fab fa-twitter twitter">&nbsp;&nbsp;</i></a>
+          <a href="https://api.whatsapp.com/send?phone=+201097571186"><i
+                  class="fab fa-whatsapp whats">&nbsp;&nbsp;</i></a>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+        </div>
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar 1 End -->
+  <section id="footer">
+    <div class="container">
+      <div class="foot-info">
+        <div class="row">
+          <div class="col-md-4">
+            <img src="imgs/Logo Rose Transparent.png" alt="" width="25%" height="auto">
+
+          </div>
+        </div>
+        <div class="col-md-8">
+          <p width="25%">
+            Introducing our Blood Donation Web App: Connect, Donate, Save Lives! Join us in our mission to bridge the gap between blood donors and those in need. Experience a seamless and secure platform that facilitates quick and efficient blood donation requests and matches. Together, let's make a life-saving impact!
+          </p>
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer End -->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script type="text/javascript" src="js/swiper.min.js"></script>
+  <script type="text/javascript" src="js/wow.min.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+
+
+</div>
+</body>
+
+</html>
